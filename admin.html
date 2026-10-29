@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Aspirasi OSIS</title>
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 24px;
+            background: #f7f0e5;
+            color: #382020;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 30px auto;
+        }
+
+        .card {
+            background: white;
+            padding: 24px;
+            border-radius: 16px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 20px #00000010;
+        }
+
+        input, button, select {
+            box-sizing: border-box;
+            padding: 12px;
+            margin: 6px 0;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+            font: inherit;
+        }
+
+        input {
+            display: block;
+            width: 100%;
+        }
+
+        button {
+            background: #781f32;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+
+        button:disabled {
+            opacity: 0.6;
+            cursor: not-allowed;
+        }
+
+        .aspirasi-item {
+            border: 1px solid #e4d8d0;
+            padding: 16px;
+            border-radius: 12px;
+            margin: 12px 0;
+            overflow-wrap: anywhere;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .muted {
+            color: #756666;
+        }
+
+        #pesanAdmin {
+            white-space: pre-wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <main class="container">
+        <h1>Dashboard Aspirasi OSIS</h1>
+        <p class="muted">SMA Negeri 4 Tebing Tinggi</p>
+
+        <section id="loginCard" class="card">
+            <h2>Login Pengurus</h2>
+
+            <form id="loginForm">
+                <label for="email">Email pengurus</label>
+                <input
+                    id="email"
+                    type="email"
+                    autocomplete="username"
+                    required
+                >
+
+                <label for="password">Kata sandi</label>
+                <input
+                    id="password"
+                    type="password"
+                    autocomplete="current-password"
+                    required
+                >
+
+                <button type="submit" id="loginButton">Masuk</button>
+            </form>
+        </section>
+
+        <section id="dashboard" class="hidden">
+            <div class="card">
+                <h2>Daftar Aspirasi</h2>
+                <p id="jumlahAspirasi">Memuat data...</p>
+                <p id="pesanAdmin" role="status"></p>
+
+                <button id="refreshButton" type="button">
+                    Muat Ulang
+                </button>
+
+                <button id="logoutButton" type="button">
+                    Keluar
+                </button>
+            </div>
+
+            <div id="daftarAspirasi" class="card">
+                Memuat aspirasi...
+            </div>
+        </section>
+    </main>
+
+    <!-- Library Supabase -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+
+    <!-- Konfigurasi project -->
+    <script src="config.js"></script>
+
+    <!-- Fungsi dashboard -->
+    <script src="admin.js"></script>
+</body>
+</html>

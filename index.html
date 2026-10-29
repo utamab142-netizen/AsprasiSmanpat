@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Aspirasi OSIS | SMAN 4 Tebing Tinggi</title>
+
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="config.js"></script>
+  <script defer src="app.js"></script>
+</head>
+
+<body>
+  <header class="navbar">
+    <a class="brand" href="#beranda">
+      <img src="logo-osis.jpg" alt="Logo OSIS"
+           onerror="this.style.display='none'">
+      <div>
+        <strong>ASPIRASI OSIS</strong>
+        <small>SMA NEGERI 4 TEBING TINGGI</small>
+      </div>
+    </a>
+
+    <nav>
+      <a href="#beranda">Beranda</a>
+      <a href="#kirim">Kirim Aspirasi</a>
+      <a href="#tentang">Tentang</a>
+    </nav>
+
+    <button id="themeToggle" class="theme-button" type="button"
+            aria-label="Ganti tema">☾</button>
+  </header>
+
+  <main>
+    <section class="hero" id="beranda">
+      <div class="hero-content">
+        <span class="eyebrow">SUARA KITA, PERUBAHAN KITA</span>
+
+        <h1>
+          Sampaikan ide.<br>
+          <em>Wujudkan perubahan.</em>
+        </h1>
+
+        <p>
+          Sampaikan saran, kritik, dan ide untuk menciptakan
+          lingkungan sekolah yang lebih baik bersama OSIS.
+        </p>
+
+        <a href="#kirim" class="button">Kirim Aspirasi →</a>
+
+        <p class="note">✓ Nama dan kelas boleh dikosongkan.</p>
+      </div>
+
+      <div class="hero-art">
+        <div class="art-card">
+          <span class="art-label">✦ ASPIRASI SISWA</span>
+          <div class="line long"></div>
+          <div class="line"></div>
+          <div class="line medium"></div>
+          <div class="stamp">SUARAMU<br>BERARTI.</div>
+          <small class="art-footer">OSIS • SMAN 4 TEBING TINGGI</small>
+        </div>
+        <div class="bubble">IDE<br>BARU</div>
+      </div>
+    </section>
+
+    <section class="photo-section">
+      <span class="eyebrow">BERSAMA LEBIH BAIK</span>
+      <h2>Satu sekolah, banyak suara.</h2>
+
+      <div class="photo-frame">
+        <img
+          src="fotbar-osis.png"
+          alt="Foto bersama pengurus OSIS"
+          onerror="this.style.display='none';
+          document.getElementById('photoPlaceholder').style.display='grid';">
+
+        <div id="photoPlaceholder" class="photo-placeholder">
+          <strong>FOTO BERSAMA OSIS</strong>
+          <span>Letakkan foto 16:9 di assets/osis-bersama.jpg</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="form-section" id="kirim">
+      <div class="form-intro">
+        <span class="eyebrow">KAMI SIAP MENDENGAR</span>
+
+        <h2>
+          Apa yang ingin<br>
+          <em>kamu sampaikan?</em>
+        </h2>
+
+        <p>
+          Setiap masukan berharga. Sampaikan aspirasi secara jelas,
+          sopan, dan membangun.
+        </p>
+
+        <div class="privacy-card">
+          <span>🔒</span>
+          <div>
+            <strong>Privasi dijaga</strong>
+            <p>
+              Aspirasi tidak ditampilkan secara publik.
+              Data hanya dapat dibaca oleh pengurus yang diizinkan.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <form id="aspirationForm" class="aspiration-form">
+        <label for="nama">Nama <span>Opsional</span></label>
+        <input id="nama" maxlength="100" placeholder="Nama kamu">
+
+        <label for="kelas">Kelas <span>Opsional</span></label>
+        <input id="kelas" maxlength="30" placeholder="Contoh: XI-1">
+
+        <label for="kategori">Kategori <b>*</b></label>
+        <select id="kategori" required>
+          <option value="">Pilih kategori</option>
+          <option>Fasilitas sekolah</option>
+          <option>Akademik</option>
+          <option>Kegiatan siswa</option>
+          <option>Kebersihan dan lingkungan</option>
+          <option>OSIS</option>
+          <option>Lainnya</option>
+        </select>
+
+        <label for="isi">Aspirasi kamu <b>*</b></label>
+        <textarea id="isi" rows="6" minlength="10" maxlength="3000"
+          placeholder="Tuliskan aspirasi kamu di sini..."
+          required></textarea>
+
+        <div class="form-bottom">
+          <small id="charCount"></small>
+          <button id="submitBtn" class="button" type="submit">
+            Kirim Aspirasi →
+          </button>
+        </div>
+
+        <p id="formMessage" role="status"></p>
+      </form>
+    </section>
+
+    <section class="about-section" id="tentang">
+      <span class="eyebrow">TENTANG LAYANAN</span>
+      <h2>Suara siswa adalah bagian dari solusi.</h2>
+      <p>
+        Website ini membantu siswa menyampaikan masukan kepada OSIS
+        dengan lebih mudah dan tertata.
+      </p>
+
+      <div class="steps">
+        <article>
+          <b>01</b>
+          <h3>Sampaikan</h3>
+          <p>Tuliskan ide atau masukan yang membangun.</p>
+        </article>
+
+        <article>
+          <b>02</b>
+          <h3>Ditinjau</h3>
+          <p>Pengurus OSIS meninjau aspirasi yang masuk.</p>
+        </article>
+
+        <article>
+          <b>03</b>
+          <h3>Ditindaklanjuti</h3>
+          <p>Aspirasi dibahas sesuai kebutuhan dan prioritas.</p>
+        </article>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>© <span id="year"></span> OSIS SMA Negeri 4 Tebing Tinggi</span>
+    <a href="admin.html">Portal Pengurus ↗</a>
+  </footer>
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="config.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
+</body>
+</html>
